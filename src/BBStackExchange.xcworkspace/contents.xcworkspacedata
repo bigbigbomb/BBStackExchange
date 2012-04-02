@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:iOS Example/BBStackExchangeAPIClient iOS Example.xcodeproj">
+      location = "group:iOS Example/BBStackExchange iOS Example.xcodeproj">
    </FileRef>
 </Workspace>

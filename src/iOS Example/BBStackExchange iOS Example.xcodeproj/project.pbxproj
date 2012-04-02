@@ -16,16 +16,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D352EF7F1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BBStackExchangeAPIClient iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D352EF7F1529FA4F00A3E94C /* BBStackExchange iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BBStackExchange iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D352EF831529FA4F00A3E94C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D352EF851529FA4F00A3E94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D352EF871529FA4F00A3E94C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D352EF9F1529FE4600A3E94C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		D352EFA01529FE4600A3E94C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		D352EFA21529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BBStackExchangeAPIClient iOS Example-Info.plist"; sourceTree = SOURCE_ROOT; };
-		D352EFA31529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBStackExchangeAPIClient iOS Example-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D352EFA41529FE5900A3E94C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		D352EFA81529FE7700A3E94C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		D352EFB1152A248100A3E94C /* BBStackExchange iOS Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BBStackExchange iOS Example-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D352EFB2152A248100A3E94C /* BBStackExchange iOS Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBStackExchange iOS Example-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +45,7 @@
 		D352EF741529FA4F00A3E94C = {
 			isa = PBXGroup;
 			children = (
+				D352EFAA152A1E2800A3E94C /* Lib */,
 				D352EF891529FA4F00A3E94C /* Classes */,
 				D352EF821529FA4F00A3E94C /* Frameworks */,
 				D352EF801529FA4F00A3E94C /* Products */,
@@ -54,7 +55,7 @@
 		D352EF801529FA4F00A3E94C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D352EF7F1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example.app */,
+				D352EF7F1529FA4F00A3E94C /* BBStackExchange iOS Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,9 +82,9 @@
 		D352EF8A1529FA4F00A3E94C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D352EFB1152A248100A3E94C /* BBStackExchange iOS Example-Info.plist */,
+				D352EFB2152A248100A3E94C /* BBStackExchange iOS Example-Prefix.pch */,
 				D352EFA71529FE7700A3E94C /* InfoPlist.strings */,
-				D352EFA21529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Info.plist */,
-				D352EFA31529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Prefix.pch */,
 				D352EFA41529FE5900A3E94C /* main.m */,
 				D352EF9F1529FE4600A3E94C /* AppDelegate.h */,
 				D352EFA01529FE4600A3E94C /* AppDelegate.m */,
@@ -91,12 +92,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D352EFAA152A1E2800A3E94C /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				D352EFAB152A1E2D00A3E94C /* AFNetworking */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		D352EFAB152A1E2D00A3E94C /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AFNetworking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D352EF7E1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example */ = {
+		D352EF7E1529FA4F00A3E94C /* BBStackExchange iOS Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D352EF971529FA4F00A3E94C /* Build configuration list for PBXNativeTarget "BBStackExchangeAPIClient iOS Example" */;
+			buildConfigurationList = D352EF971529FA4F00A3E94C /* Build configuration list for PBXNativeTarget "BBStackExchange iOS Example" */;
 			buildPhases = (
 				D352EF7B1529FA4F00A3E94C /* Sources */,
 				D352EF7C1529FA4F00A3E94C /* Frameworks */,
@@ -106,9 +122,9 @@
 			);
 			dependencies = (
 			);
-			name = "BBStackExchangeAPIClient iOS Example";
+			name = "BBStackExchange iOS Example";
 			productName = iOSExample;
-			productReference = D352EF7F1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example.app */;
+			productReference = D352EF7F1529FA4F00A3E94C /* BBStackExchange iOS Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -120,7 +136,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "BigBig Bomb, LLC";
 			};
-			buildConfigurationList = D352EF791529FA4F00A3E94C /* Build configuration list for PBXProject "BBStackExchangeAPIClient iOS Example" */;
+			buildConfigurationList = D352EF791529FA4F00A3E94C /* Build configuration list for PBXProject "BBStackExchange iOS Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -132,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D352EF7E1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example */,
+				D352EF7E1529FA4F00A3E94C /* BBStackExchange iOS Example */,
 			);
 		};
 /* End PBXProject section */
@@ -219,9 +235,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBStackExchangeAPIClient iOS Example-Prefix.pch";
-				INFOPLIST_FILE = "BBStackExchangeAPIClient iOS Example-Info.plist";
-				PRODUCT_NAME = "BBStackExchangeAPIClient iOS Example";
+				GCC_PREFIX_HEADER = "BBStackExchange iOS Example-Prefix.pch";
+				INFOPLIST_FILE = "BBStackExchange iOS Example-Info.plist";
+				PRODUCT_NAME = "BBStackExchange iOS Example";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -230,9 +246,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBStackExchangeAPIClient iOS Example-Prefix.pch";
-				INFOPLIST_FILE = "BBStackExchangeAPIClient iOS Example-Info.plist";
-				PRODUCT_NAME = "BBStackExchangeAPIClient iOS Example";
+				GCC_PREFIX_HEADER = "BBStackExchange iOS Example-Prefix.pch";
+				INFOPLIST_FILE = "BBStackExchange iOS Example-Info.plist";
+				PRODUCT_NAME = "BBStackExchange iOS Example";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -240,7 +256,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D352EF791529FA4F00A3E94C /* Build configuration list for PBXProject "BBStackExchangeAPIClient iOS Example" */ = {
+		D352EF791529FA4F00A3E94C /* Build configuration list for PBXProject "BBStackExchange iOS Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D352EF951529FA4F00A3E94C /* Debug */,
@@ -249,7 +265,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D352EF971529FA4F00A3E94C /* Build configuration list for PBXNativeTarget "BBStackExchangeAPIClient iOS Example" */ = {
+		D352EF971529FA4F00A3E94C /* Build configuration list for PBXNativeTarget "BBStackExchange iOS Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D352EF981529FA4F00A3E94C /* Debug */,
