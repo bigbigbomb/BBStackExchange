@@ -16,7 +16,7 @@
 
 NSString * const kBBStackExchangeAPIURL = @"https://api.stackexchange.com";
 NSString * const kBBStackExchangeAPIVersion = @"2.0";
-NSString * const kBBStackExchangeSiteAPIKey = @"Insert your API Key here. Get one at http://stackapps.com/apps/oauth/register";
+NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 
 @interface BBStackExchangeAPIClient ()
 

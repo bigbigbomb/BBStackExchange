@@ -5,6 +5,10 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPClient.h"
 
+#ifndef BBSTACKEXCHANGE_SITE_API_KEY
+#define BBSTACKEXCHANGE_SITE_API_KEY  @"You should have defined BBSTACKEXCHANGE_SITE_API_KEY in your code. You can register for one at http://stackapps.com/apps/oauth/register"
+#endif
+
 @class BBStackAPISite;
 @class BBStackAPICallData;
 
