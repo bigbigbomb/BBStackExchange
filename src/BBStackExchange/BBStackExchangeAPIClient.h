@@ -100,7 +100,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 * Get the tags that the user specified by the current accessToken has been active in.
 * This call will fail if the API client does not have a valid accessToken.
 */
-- (void)getMeTagsFromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min order:(BBStackAPISortOrder)order
+- (AFHTTPRequestOperation *)getMeTagsFromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min order:(BBStackAPISortOrder)order
                      page:(NSNumber *)page pageSize:(NSNumber *)pageSize sort:(BBStackAPITagSort)sort
                    toDate:(NSDate *)toDate
                   success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
@@ -121,7 +121,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 * Creates a request for the /tags API call and enqueues it in the default operation pool.
 * Get the tags on the site.
 */
-- (void)getTagsWithInName:(NSString *)inName fromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
+- (AFHTTPRequestOperation *)getTagsWithInName:(NSString *)inName fromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
                     order:(BBStackAPISortOrder)order page:(NSNumber *)page pageSize:(NSNumber *)pageSize
                      sort:(BBStackAPITagSort)sort toDate:(NSDate *)toDate
                   success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
@@ -137,7 +137,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 * Creates a request for the /tags/{tags}/wikis API call and enqueues it in the default operation pool.
 * Get the wiki entries for a set of tags.
 */
-- (void)getWikisForTags:(NSArray *)tags
+- (AFHTTPRequestOperation *)getWikisForTags:(NSArray *)tags
                 success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 /**
@@ -151,7 +151,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 * Creates a request for the /info API call and enqueues it in the default operation pool.
 * Get information about the entire site.
 */
-- (void)getInfoWithFilter:(NSString *)filter
+- (AFHTTPRequestOperation *)getInfoWithFilter:(NSString *)filter
                   success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 
@@ -227,7 +227,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 * Get the answers to the questions identified by an array of BBStackAPIQuestion objects.
 * @returns an NSOperation for the /questions/{ids}/answers API call.
 */
-- (void)getAnswersForQuestions:(NSArray *)questions page:(NSNumber *)page pageSize:(NSNumber *)pageSize
+- (AFHTTPRequestOperation *)getAnswersForQuestions:(NSArray *)questions page:(NSNumber *)page pageSize:(NSNumber *)pageSize
                       fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate order:(BBStackAPISortOrder)order
                            min:(NSNumber *)min max:(NSNumber *)max sort:(BBStackAPIAnswerSort)sort
                         filter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
@@ -237,7 +237,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 * Get all the sites in the Stack Exchange network.
 * @returns an NSOperation for the /sites API call.
 */
-- (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
+- (AFHTTPRequestOperation *)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 @end

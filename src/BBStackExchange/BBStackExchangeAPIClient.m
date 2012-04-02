@@ -155,7 +155,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 }
 
 
-- (void)getMeTagsFromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
+- (AFHTTPRequestOperation *)getMeTagsFromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
                                             order:(BBStackAPISortOrder)order page:(NSNumber *)page
                                          pageSize:(NSNumber *)pageSize sort:(BBStackAPITagSort)sort
                                            toDate:(NSDate *)toDate
@@ -165,7 +165,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
                                    sort:sort toDate:toDate
                                 success:success failure:failure];
     [self enqueueHTTPRequestOperation:operation];
-
+    return operation;
 }
 
 - (AFHTTPRequestOperation *)operationForGetTagsWithInName:(NSString *)inName fromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
@@ -201,7 +201,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 }
 
 
-- (void)getTagsWithInName:(NSString *)inName fromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
+- (AFHTTPRequestOperation *)getTagsWithInName:(NSString *)inName fromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
                     order:(BBStackAPISortOrder)order page:(NSNumber *)page pageSize:(NSNumber *)pageSize
                      sort:(BBStackAPITagSort)sort toDate:(NSDate *)toDate
                   success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
@@ -210,7 +210,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
                                    sort:sort toDate:toDate
                                 success:success failure:failure];
     [self enqueueHTTPRequestOperation:operation];
-
+    return operation;
 }
 
 - (AFHTTPRequestOperation *)operationForGetWikisForTags:(NSArray *)tags
@@ -232,10 +232,11 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     ];
 }
 
-- (void)getWikisForTags:(NSArray *)tags
+- (AFHTTPRequestOperation *)getWikisForTags:(NSArray *)tags
                 success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
     AFHTTPRequestOperation *operation = [self operationForGetWikisForTags:tags success:success failure:failure];
     [self enqueueHTTPRequestOperation:operation];
+    return operation;
 }
 
 - (AFHTTPRequestOperation *)operationForGetInfoWithFilter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
@@ -254,9 +255,10 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     ];
 }
 
-- (void)getInfoWithFilter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
-    AFHTTPRequestOperation *operation = [self operationForGetInfoWithFilter:nil success:success failure:failure];
+- (AFHTTPRequestOperation *)getInfoWithFilter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
+    AFHTTPRequestOperation *operation = [self operationForGetInfoWithFilter:filter success:success failure:failure];
     [self enqueueHTTPRequestOperation:operation];
+    return operation;
 }
 
 - (AFHTTPRequestOperation *)getQuestionsAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize fromDate:(NSDate *)fromDate
@@ -392,7 +394,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     ];
 }
 
-- (void)getAnswersForQuestions:(NSArray *)questions page:(NSNumber *)page pageSize:(NSNumber *)pageSize
+- (AFHTTPRequestOperation *)getAnswersForQuestions:(NSArray *)questions page:(NSNumber *)page pageSize:(NSNumber *)pageSize
                       fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate order:(BBStackAPISortOrder)order
                            min:(NSNumber *)min max:(NSNumber *)max sort:(BBStackAPIAnswerSort)sort
                         filter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
@@ -415,7 +417,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
         return questionIDAsString;
     } joinedByString:@";"];
     NSDictionary *queryString = [self buildParameters:userParams];
-    [self getPath:[NSString stringWithFormat:@"questions/%@/answers", questionIDs] parameters:queryString
+    AFHTTPRequestOperation *operation = [self operationForGetPath:[NSString stringWithFormat:@"questions/%@/answers", questionIDs] parameters:queryString
           success:^(AFHTTPRequestOperation *request, id successBody) {
               BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:successBody];
               NSArray *results = [BBStackAPIAnswer getObjectArrayFromAttributes:successBody inSite:self.site];
@@ -425,9 +427,11 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
               [self handleFailure:request error:error failure:failure];
           }
     ];
+    [self enqueueHTTPRequestOperation:operation];
+    return operation;
 }
 
-- (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
+- (AFHTTPRequestOperation *)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
          success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
     NSMutableDictionary *userParams = [NSMutableDictionary dictionaryWithCapacity:3];
     [userParams setValue:page forKey:@"page"];
@@ -435,7 +439,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     [userParams setValue:[NSString stringWithbool:minimal] forKey:@"minimal"];
 
     NSDictionary *queryString = [self buildParameters:userParams];
-    [self getPath:@"sites" parameters:queryString
+    AFHTTPRequestOperation *operation = [self operationForGetPath:@"sites" parameters:queryString
           success:^(AFHTTPRequestOperation *request, id body) {
               BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
               NSArray *results = [BBStackAPISite getObjectArrayFromAttributes:body];
@@ -445,6 +449,8 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
               [self handleFailure:request error:error failure:failure];
         }
     ];
+    [self enqueueHTTPRequestOperation:operation];
+    return operation;
 }
 
 @end
