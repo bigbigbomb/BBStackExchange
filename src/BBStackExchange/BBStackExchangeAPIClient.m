@@ -20,6 +20,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 
 @interface BBStackExchangeAPIClient ()
 
+// \cond
 @property(nonatomic, readwrite, retain) BBStackAPISite *site;
 
 - (NSDictionary *)buildParameters:(NSDictionary *)parameters;
@@ -29,7 +30,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 - (void)handleFailure:(AFHTTPRequestOperation *)request error:(NSError *)error failure:(BBStackAPIFailureHandler)failure;
 
 - (AFHTTPRequestOperation *)operationForGetPath:(NSString *)path parameters:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure;
-
+// \endcond
 
 @end
 
@@ -425,50 +426,6 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
           }
     ];
 }
-
-//- (AFHTTPRequestOperation *)searchForQuestionsTagged:(NSArray *)tags notTagged:(NSArray *)notTagged inTitle:(NSString *)inTitle
-//                             max:(NSNumber *)max min:(NSNumber *)min order:(BBStackAPISortOrder)order page:(NSNumber *)page
-//                        pageSize:(NSNumber *)pageSize sort:(BBStackAPIQuestionSort)sort toDate:(NSDate *)toDate
-//                         success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
-//    AFHTTPRequestOperation *operation = [self operationForSearchForQuestionsTagged:tags notTagged:notTagged inTitle:inTitle
-//                                                                              max:max min:min order:order page:page pageSize:pageSize
-//                                                                             sort:sort toDate:toDate success:success failure:failure];
-//    [self enqueueHTTPRequestOperation:operation];
-//    return operation;
-//}
-//
-//- (AFHTTPRequestOperation *)operationForSearchForQuestionsTagged:(NSArray *)tags notTagged:(NSArray *)notTagged inTitle:(NSString *)inTitle
-//                             max:(NSNumber *)max min:(NSNumber *)min order:(BBStackAPISortOrder)order page:(NSNumber *)page
-//                        pageSize:(NSNumber *)pageSize sort:(BBStackAPIQuestionSort)sort toDate:(NSDate *)toDate
-//                         success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
-//    NSString *tagIDs = [tags componentsJoinedByString:@";"];
-//    NSString *notTagIDs = [notTagged componentsJoinedByString:@";"];
-//
-//    NSMutableDictionary *userParams = [NSMutableDictionary dictionaryWithCapacity:10];
-//    [userParams setValue:tagIDs forKey:@"tagged"];
-//    [userParams setValue:notTagIDs forKey:@"notagged"];
-//    [userParams setValue:inTitle forKey:@"intitle"];
-//    [userParams setValue:max forKey:@"max"];
-//    [userParams setValue:min forKey:@"min"];
-//    [userParams setValue:[NSString stringWithBBStackAPISortOrder:order] forKey:@"order"];
-//    [userParams setValue:page forKey:@"page"];
-//    [userParams setValue:pageSize forKey:@"pagesize"];
-//    [userParams setValue:[NSString stringWithBBStackAPIQuestionSort:sort] forKey:@"sort"];
-//    if (toDate != nil)
-//        [userParams setValue:[NSNumber numberWithDouble:[toDate timeIntervalSince1970]] forKey:@"toDate"];
-//
-//    NSDictionary *queryString = [self buildParameters:userParams];
-//    return [self operationForGetPath:@"search" parameters:queryString
-//          success:^(AFHTTPRequestOperation *request, id successBody) {
-//              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:successBody];
-//              NSArray *results = [BBStackAPIQuestion getObjectArrayFromAttributes:successBody inSite:self.site];
-//              success(request, callData, results);
-//          }
-//          failure:^(AFHTTPRequestOperation *request, NSError *error) {
-//              [self handleFailure:request error:error failure:failure];
-//          }
-//    ];
-//}
 
 - (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
          success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
