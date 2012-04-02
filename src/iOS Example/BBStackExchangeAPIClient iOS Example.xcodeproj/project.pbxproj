@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D352EF841529FA4F00A3E94C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF831529FA4F00A3E94C /* UIKit.framework */; };
+		D352EF861529FA4F00A3E94C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF851529FA4F00A3E94C /* Foundation.framework */; };
+		D352EF881529FA4F00A3E94C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF871529FA4F00A3E94C /* CoreGraphics.framework */; };
+		D352EFA11529FE4600A3E94C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFA01529FE4600A3E94C /* AppDelegate.m */; };
+		D352EFA61529FE5900A3E94C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFA41529FE5900A3E94C /* main.m */; };
+		D352EFA91529FE7700A3E94C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D352EFA71529FE7700A3E94C /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D352EF7F1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BBStackExchangeAPIClient iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D352EF831529FA4F00A3E94C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D352EF851529FA4F00A3E94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D352EF871529FA4F00A3E94C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D352EF9F1529FE4600A3E94C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		D352EFA01529FE4600A3E94C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		D352EFA21529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BBStackExchangeAPIClient iOS Example-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D352EFA31529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBStackExchangeAPIClient iOS Example-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		D352EFA41529FE5900A3E94C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		D352EFA81529FE7700A3E94C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D352EF7C1529FA4F00A3E94C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D352EF841529FA4F00A3E94C /* UIKit.framework in Frameworks */,
+				D352EF861529FA4F00A3E94C /* Foundation.framework in Frameworks */,
+				D352EF881529FA4F00A3E94C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D352EF741529FA4F00A3E94C = {
+			isa = PBXGroup;
+			children = (
+				D352EF891529FA4F00A3E94C /* Classes */,
+				D352EF821529FA4F00A3E94C /* Frameworks */,
+				D352EF801529FA4F00A3E94C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D352EF801529FA4F00A3E94C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D352EF7F1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D352EF821529FA4F00A3E94C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D352EF831529FA4F00A3E94C /* UIKit.framework */,
+				D352EF851529FA4F00A3E94C /* Foundation.framework */,
+				D352EF871529FA4F00A3E94C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D352EF891529FA4F00A3E94C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D352EF8A1529FA4F00A3E94C /* Supporting Files */,
+			);
+			name = Classes;
+			path = iOSExample;
+			sourceTree = "<group>";
+		};
+		D352EF8A1529FA4F00A3E94C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D352EFA71529FE7700A3E94C /* InfoPlist.strings */,
+				D352EFA21529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Info.plist */,
+				D352EFA31529FE5900A3E94C /* BBStackExchangeAPIClient iOS Example-Prefix.pch */,
+				D352EFA41529FE5900A3E94C /* main.m */,
+				D352EF9F1529FE4600A3E94C /* AppDelegate.h */,
+				D352EFA01529FE4600A3E94C /* AppDelegate.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D352EF7E1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D352EF971529FA4F00A3E94C /* Build configuration list for PBXNativeTarget "BBStackExchangeAPIClient iOS Example" */;
+			buildPhases = (
+				D352EF7B1529FA4F00A3E94C /* Sources */,
+				D352EF7C1529FA4F00A3E94C /* Frameworks */,
+				D352EF7D1529FA4F00A3E94C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BBStackExchangeAPIClient iOS Example";
+			productName = iOSExample;
+			productReference = D352EF7F1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D352EF761529FA4F00A3E94C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "BigBig Bomb, LLC";
+			};
+			buildConfigurationList = D352EF791529FA4F00A3E94C /* Build configuration list for PBXProject "BBStackExchangeAPIClient iOS Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D352EF741529FA4F00A3E94C;
+			productRefGroup = D352EF801529FA4F00A3E94C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D352EF7E1529FA4F00A3E94C /* BBStackExchangeAPIClient iOS Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D352EF7D1529FA4F00A3E94C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D352EFA91529FE7700A3E94C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D352EF7B1529FA4F00A3E94C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D352EFA11529FE4600A3E94C /* AppDelegate.m in Sources */,
+				D352EFA61529FE5900A3E94C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D352EFA71529FE7700A3E94C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D352EFA81529FE7700A3E94C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D352EF951529FA4F00A3E94C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D352EF961529FA4F00A3E94C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D352EF981529FA4F00A3E94C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBStackExchangeAPIClient iOS Example-Prefix.pch";
+				INFOPLIST_FILE = "BBStackExchangeAPIClient iOS Example-Info.plist";
+				PRODUCT_NAME = "BBStackExchangeAPIClient iOS Example";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D352EF991529FA4F00A3E94C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBStackExchangeAPIClient iOS Example-Prefix.pch";
+				INFOPLIST_FILE = "BBStackExchangeAPIClient iOS Example-Info.plist";
+				PRODUCT_NAME = "BBStackExchangeAPIClient iOS Example";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D352EF791529FA4F00A3E94C /* Build configuration list for PBXProject "BBStackExchangeAPIClient iOS Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D352EF951529FA4F00A3E94C /* Debug */,
+				D352EF961529FA4F00A3E94C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D352EF971529FA4F00A3E94C /* Build configuration list for PBXNativeTarget "BBStackExchangeAPIClient iOS Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D352EF981529FA4F00A3E94C /* Debug */,
+				D352EF991529FA4F00A3E94C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D352EF761529FA4F00A3E94C /* Project object */;
+}
