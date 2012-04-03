@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
 #endif
 
+// Your should go register for an API key at http://stackapps.com/apps/oauth/register. This one is just for fun.
 #define BBSTACKEXCHANGE_SITE_API_KEY @"mkFCLpP8F4W77kjTNZOSmA(("

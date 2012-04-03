@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343512E152B580E00BEE7BB /* ExampleViewController.m */; };
 		D3435138152B764500BEE7BB /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3435137152B764500BEE7BB /* QuestionTableViewCell.m */; };
+		D343513B152B795F00BEE7BB /* BBStackAPINetworkUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D343513A152B795F00BEE7BB /* BBStackAPINetworkUser.m */; };
 		D352EF841529FA4F00A3E94C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF831529FA4F00A3E94C /* UIKit.framework */; };
 		D352EF861529FA4F00A3E94C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF851529FA4F00A3E94C /* Foundation.framework */; };
 		D352EF881529FA4F00A3E94C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF871529FA4F00A3E94C /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 		D343512E152B580E00BEE7BB /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		D3435136152B764500BEE7BB /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
 		D3435137152B764500BEE7BB /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
+		D3435139152B795F00BEE7BB /* BBStackAPINetworkUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStackAPINetworkUser.h; sourceTree = "<group>"; };
+		D343513A152B795F00BEE7BB /* BBStackAPINetworkUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStackAPINetworkUser.m; sourceTree = "<group>"; };
 		D352EF7F1529FA4F00A3E94C /* BBStackExchange iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BBStackExchange iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D352EF831529FA4F00A3E94C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D352EF851529FA4F00A3E94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -261,6 +264,8 @@
 		D352EFD9152A261E00A3E94C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3435139152B795F00BEE7BB /* BBStackAPINetworkUser.h */,
+				D343513A152B795F00BEE7BB /* BBStackAPINetworkUser.m */,
 				D352EFDA152A261E00A3E94C /* BBStackAPIAnswer.h */,
 				D352EFDB152A261E00A3E94C /* BBStackAPIAnswer.m */,
 				D352EFDC152A261E00A3E94C /* BBStackAPIComment.h */,
@@ -381,6 +386,7 @@
 				D352F105152A4FC700A3E958 /* BBStackExchangeAPIClientBase.m in Sources */,
 				D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */,
 				D3435138152B764500BEE7BB /* QuestionTableViewCell.m in Sources */,
+				D343513B152B795F00BEE7BB /* BBStackAPINetworkUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

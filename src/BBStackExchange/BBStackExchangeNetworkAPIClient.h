@@ -20,5 +20,12 @@
 - (AFHTTPRequestOperation *)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
+/**
+* Creates a request for the /me/associated API call and enqueues it in the default operation pool.
+* Get all the sites in the Stack Exchange network.
+* @returns an NSOperation for the /sites API call.
+*/
+- (AFHTTPRequestOperation *)getMeAssociated:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
+                                    success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 @end

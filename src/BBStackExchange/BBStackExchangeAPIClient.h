@@ -219,7 +219,4 @@ typedef enum {
                            min:(NSNumber *)min max:(NSNumber *)max sort:(BBStackAPIAnswerSort)sort
                         filter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
-- (void)getMeAssociated:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
-
-
 @end
