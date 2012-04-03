@@ -79,6 +79,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 */
 @property(nonatomic, readonly, retain) BBStackAPISite *site;
 
+- (id)initWithAccessToken:(NSString *)accessToken;
 
 /**
 * Initializes and returns a BBStackExchangeAPIClient for the specified BBStackAPISite and access token.
@@ -248,7 +249,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 * Get all the sites in the Stack Exchange network.
 * @returns an NSOperation for the /sites API call.
 */
-- (AFHTTPRequestOperation *)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
+- (AFHTTPRequestOperation *)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 @end
