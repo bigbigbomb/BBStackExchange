@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343512E152B580E00BEE7BB /* ExampleViewController.m */; };
+		D3435138152B764500BEE7BB /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3435137152B764500BEE7BB /* QuestionTableViewCell.m */; };
 		D352EF841529FA4F00A3E94C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF831529FA4F00A3E94C /* UIKit.framework */; };
 		D352EF861529FA4F00A3E94C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF851529FA4F00A3E94C /* Foundation.framework */; };
 		D352EF881529FA4F00A3E94C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF871529FA4F00A3E94C /* CoreGraphics.framework */; };
@@ -41,12 +42,13 @@
 		D352F105152A4FC700A3E94E /* BBStackExchangeNetworkAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E94D /* BBStackExchangeNetworkAPIClient.m */; };
 		D352F105152A4FC700A3E954 /* BBStackExchangeAPIClientBase+Protected.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E953 /* BBStackExchangeAPIClientBase+Protected.m */; };
 		D352F105152A4FC700A3E958 /* BBStackExchangeAPIClientBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E957 /* BBStackExchangeAPIClientBase.m */; };
-		D352F105152A4FC700A3E95A /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E959 /* QuestionTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D343512D152B580E00BEE7BB /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		D343512E152B580E00BEE7BB /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		D3435136152B764500BEE7BB /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
+		D3435137152B764500BEE7BB /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
 		D352EF7F1529FA4F00A3E94C /* BBStackExchange iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BBStackExchange iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D352EF831529FA4F00A3E94C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D352EF851529FA4F00A3E94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,8 +115,6 @@
 		D352F105152A4FC700A3E955 /* BBStackExchangeAPIClientBase+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BBStackExchangeAPIClientBase+Protected.h"; path = "../BBStackExchange/BBStackExchangeAPIClientBase+Protected.h"; sourceTree = "<group>"; };
 		D352F105152A4FC700A3E956 /* BBStackExchangeAPIClientBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStackExchangeAPIClientBase.h; sourceTree = "<group>"; };
 		D352F105152A4FC700A3E957 /* BBStackExchangeAPIClientBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStackExchangeAPIClientBase.m; sourceTree = "<group>"; };
-		D352F105152A4FC700A3E959 /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
-		D352F105152A4FC700A3E95B /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +134,7 @@
 		D343512A152B57F300BEE7BB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D3435135152B763A00BEE7BB /* Views */,
 				D343512C152B580400BEE7BB /* Controllers */,
 				D343512B152B57F900BEE7BB /* Supporting Files */,
 			);
@@ -161,11 +162,18 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		D3435135152B763A00BEE7BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D3435136152B764500BEE7BB /* QuestionTableViewCell.h */,
+				D3435137152B764500BEE7BB /* QuestionTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D352EF741529FA4F00A3E94C = {
 			isa = PBXGroup;
 			children = (
-				D352F105152A4FC700A3E95B /* QuestionTableViewCell.h */,
-				D352F105152A4FC700A3E959 /* QuestionTableViewCell.m */,
 				D343512A152B57F300BEE7BB /* Classes */,
 				D352EFAA152A1E2800A3E94C /* Lib */,
 				D352EF821529FA4F00A3E94C /* Frameworks */,
@@ -372,7 +380,7 @@
 				D352F105152A4FC700A3E954 /* BBStackExchangeAPIClientBase+Protected.m in Sources */,
 				D352F105152A4FC700A3E958 /* BBStackExchangeAPIClientBase.m in Sources */,
 				D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */,
-				D352F105152A4FC700A3E95A /* QuestionTableViewCell.m in Sources */,
+				D3435138152B764500BEE7BB /* QuestionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
