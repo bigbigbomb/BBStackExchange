@@ -12,22 +12,25 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize navigationController = _navigationController;
+
 
 - (void)dealloc {
     [_window release];
+    [_navigationController release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    ExampleViewController *loading = [[ExampleViewController alloc] init];
+    ExampleViewController *tableController = [[ExampleViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:tableController] autorelease];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    [tableController release];
 
-    self.window.rootViewController = loading;
-
-    [loading.view setFrame:[[UIScreen mainScreen] bounds]];
-    [self.window addSubview:loading.view];
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
 
-    [loading release];
     return YES;
 }
 

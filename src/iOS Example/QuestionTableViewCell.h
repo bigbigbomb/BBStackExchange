@@ -4,8 +4,6 @@
 //
 #import <Foundation/Foundation.h>
 
-@class BBStackExchangeNetworkAPIClient;
 
-
-@interface ExampleViewController : UITableViewController
+@interface QuestionTableViewCell : UITableViewCell
 @end

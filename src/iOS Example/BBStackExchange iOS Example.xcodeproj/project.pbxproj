@@ -41,6 +41,7 @@
 		D352F105152A4FC700A3E94E /* BBStackExchangeNetworkAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E94D /* BBStackExchangeNetworkAPIClient.m */; };
 		D352F105152A4FC700A3E954 /* BBStackExchangeAPIClientBase+Protected.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E953 /* BBStackExchangeAPIClientBase+Protected.m */; };
 		D352F105152A4FC700A3E958 /* BBStackExchangeAPIClientBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E957 /* BBStackExchangeAPIClientBase.m */; };
+		D352F105152A4FC700A3E95A /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E959 /* QuestionTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,8 @@
 		D352F105152A4FC700A3E955 /* BBStackExchangeAPIClientBase+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BBStackExchangeAPIClientBase+Protected.h"; path = "../BBStackExchange/BBStackExchangeAPIClientBase+Protected.h"; sourceTree = "<group>"; };
 		D352F105152A4FC700A3E956 /* BBStackExchangeAPIClientBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStackExchangeAPIClientBase.h; sourceTree = "<group>"; };
 		D352F105152A4FC700A3E957 /* BBStackExchangeAPIClientBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStackExchangeAPIClientBase.m; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E959 /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E95B /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 		D352EF741529FA4F00A3E94C = {
 			isa = PBXGroup;
 			children = (
+				D352F105152A4FC700A3E95B /* QuestionTableViewCell.h */,
+				D352F105152A4FC700A3E959 /* QuestionTableViewCell.m */,
 				D343512A152B57F300BEE7BB /* Classes */,
 				D352EFAA152A1E2800A3E94C /* Lib */,
 				D352EF821529FA4F00A3E94C /* Frameworks */,
@@ -367,6 +372,7 @@
 				D352F105152A4FC700A3E954 /* BBStackExchangeAPIClientBase+Protected.m in Sources */,
 				D352F105152A4FC700A3E958 /* BBStackExchangeAPIClientBase.m in Sources */,
 				D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */,
+				D352F105152A4FC700A3E95A /* QuestionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
