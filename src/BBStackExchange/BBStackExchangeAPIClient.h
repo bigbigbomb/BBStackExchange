@@ -57,6 +57,8 @@ extern NSString * const kBBStackExchangeAPIVersion;
 @property(nonatomic, copy) NSString *accessToken;
 @property(nonatomic, readonly, retain) BBStackAPISite *site;
 
+- (id)initWithAccessToken:(NSString *)accessToken;
+
 - (id)initWithSite:(BBStackAPISite *)site accessToken:(NSString *)accessToken;
 
 - (AFHTTPRequestOperation *)operationForGetMeTagsFromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
@@ -122,7 +124,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 //                                                         failure:(BBStackAPIFailureHandler)failure;
 
 
-- (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
+- (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 @end

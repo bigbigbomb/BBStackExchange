@@ -22,6 +22,10 @@
     return self;
 }
 
++ (NSString *)attributeContainerKey {
+    return @"items";
+}
+
 - (NSString *)apiSiteParameter {
     return [self.attributes valueForKey:@"api_site_parameter"];
 }
@@ -38,20 +42,20 @@
     return [NSURL URLWithString:[self.attributes valueForKeyPath:@"site_url"]];
 }
 
-- (NSString *)siteDescription {
-    return [self.attributes valueForKeyPath:@"description"];
+- (NSString *)audience {
+    return [self.attributes valueForKeyPath:@"audience"];
 }
 
 - (NSURL *)iconURL {
     return [NSURL URLWithString:[self.attributes valueForKeyPath:@"icon_url"]];
 }
 
-- (BBStackAPISiteState)state {
-    if ([[self.attributes valueForKeyPath:@"state"] isEqualToString:@"linked_meta"])
+- (BBStackAPISiteState)siteState {
+    if ([[self.attributes valueForKeyPath:@"site_state"] isEqualToString:@"linked_meta"])
         return BBStackAPISiteStateLinkedMeta;
-    else if ([[self.attributes valueForKeyPath:@"state"] isEqualToString:@"normal"])
+    else if ([[self.attributes valueForKeyPath:@"site_state"] isEqualToString:@"normal"])
         return BBStackAPISiteStateNormal;
-    else if ([[self.attributes valueForKeyPath:@"state"] isEqualToString:@"open_beta"])
+    else if ([[self.attributes valueForKeyPath:@"site_state"] isEqualToString:@"open_beta"])
         return BBStackAPISiteStateOpenBeta;
     else
         return BBStackAPISiteStateUnknown;
@@ -61,8 +65,8 @@
     return [NSURL URLWithString:[self.attributes valueForKeyPath:@"favicon_url"]];
 }
 
-- (NSDate *)creationDate {
-    return [self.attributes valueForKeyPath:@"creation_date"];
+- (NSDate *)launchDate {
+    return [self dateForKey:@"launch_date"];
 }
 
 - (NSString *)twitterAccount {

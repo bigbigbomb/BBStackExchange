@@ -18,11 +18,11 @@ typedef enum {
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSURL *logoURL;
 @property (nonatomic, readonly) NSURL *siteURL;
-@property (nonatomic, readonly) NSString *siteDescription;
+@property (nonatomic, readonly) NSString *audience;
 @property (nonatomic, readonly) NSURL *iconURL;
-@property (nonatomic, readonly) BBStackAPISiteState state;
+@property (nonatomic, readonly) BBStackAPISiteState siteState;
 @property (nonatomic, readonly) NSURL *faviconURL;
-@property (nonatomic, readonly) NSDate *creationDate;
+@property (nonatomic, readonly) NSDate *launchDate;
 @property (nonatomic, readonly) NSString *twitterAccount;
 
 - (id)initWithApiSiteParameter:(NSString *)apiSiteParameter siteURL:(NSURL *)siteURL siteName:(NSString *)siteName;

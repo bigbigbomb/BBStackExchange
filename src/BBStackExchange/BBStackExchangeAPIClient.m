@@ -46,6 +46,10 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 @synthesize site = _site;
 @synthesize accessToken = _accessToken;
 
+- (id)initWithAccessToken:(NSString *)accessToken {
+    self = [self initWithSite:nil accessToken:accessToken];
+    return self;
+}
 
 - (id)initWithSite:(BBStackAPISite *)site accessToken:(NSString *)accessToken {
     NSString *urlWithVersion = [NSString stringWithFormat:@"%@/%@/", kBBStackExchangeAPIURL, kBBStackExchangeAPIVersion];
@@ -470,12 +474,12 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 //    ];
 //}
 
-- (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize minimal:(bool)minimal
-         success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
+- (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
+               success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
     NSMutableDictionary *userParams = [NSMutableDictionary dictionaryWithCapacity:3];
     [userParams setValue:page forKey:@"page"];
     [userParams setValue:pageSize forKey:@"pagesize"];
-    [userParams setValue:[NSString stringWithbool:minimal] forKey:@"minimal"];
+    [userParams setValue:filter forKey:@"filter"];
 
     NSDictionary *queryString = [self buildParameters:userParams];
     [self getPath:@"sites" parameters:queryString
