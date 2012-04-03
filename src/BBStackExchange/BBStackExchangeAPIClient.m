@@ -13,6 +13,7 @@
 #import "BBStackAPIAnswer.h"
 #import "AFNetworking.h"
 #import "BBStackAPICallData.h"
+#import "BBStackAPINetworkUser.h"
 
 NSString * const kBBStackExchangeAPIURL = @"https://api.stackexchange.com";
 NSString * const kBBStackExchangeAPIVersion = @"2.0";
@@ -486,6 +487,26 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
           success:^(AFHTTPRequestOperation *request, id body) {
               BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
               NSArray *results = [BBStackAPISite getObjectArrayFromAttributes:body];
+              success(request, callData, results);
+          }
+          failure:^(AFHTTPRequestOperation *request, NSError *error){
+              [self handleFailure:request error:error failure:failure];
+        }
+    ];
+}
+
+- (void)getMeAssociated:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
+               success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
+    NSMutableDictionary *userParams = [NSMutableDictionary dictionaryWithCapacity:3];
+    [userParams setValue:page forKey:@"page"];
+    [userParams setValue:pageSize forKey:@"pagesize"];
+    [userParams setValue:filter forKey:@"filter"];
+
+    NSDictionary *queryString = [self buildParameters:userParams];
+    [self getPath:@"me/associated" parameters:queryString
+          success:^(AFHTTPRequestOperation *request, id body) {
+              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
+              NSArray *results = [BBStackAPINetworkUser getObjectArrayFromAttributes:body];
               success(request, callData, results);
           }
           failure:^(AFHTTPRequestOperation *request, NSError *error){

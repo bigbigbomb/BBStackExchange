@@ -127,4 +127,7 @@ extern NSString * const kBBStackExchangeAPIVersion;
 - (void)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
+- (void)getMeAssociated:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
+
+
 @end
