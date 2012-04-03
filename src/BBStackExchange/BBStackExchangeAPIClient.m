@@ -13,115 +13,40 @@
 #import "BBStackAPIAnswer.h"
 #import "AFNetworking.h"
 #import "BBStackAPICallData.h"
+#import "BBStackExchangeAPIClientBase+Protected.h"
 
-NSString * const kBBStackExchangeAPIURL = @"https://api.stackexchange.com";
-NSString * const kBBStackExchangeAPIVersion = @"2.0";
-NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
 
 @interface BBStackExchangeAPIClient ()
 
 // \cond
 @property(nonatomic, readwrite, retain) BBStackAPISite *site;
-
-- (NSDictionary *)buildParameters:(NSDictionary *)parameters;
-
-+ (BBStackAPICallData *)callDataFromAttributes:(NSDictionary *)dictionary;
-
-- (void)handleFailure:(AFHTTPRequestOperation *)request error:(NSError *)error failure:(BBStackAPIFailureHandler)failure;
-
-- (AFHTTPRequestOperation *)operationForGetPath:(NSString *)path parameters:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure;
 // \endcond
 
 @end
 
 
-@implementation BBStackExchangeAPIClient {
+@implementation BBStackExchangeAPIClient
 
-@private
-    NSString *_apiKey;
-    BBStackAPISite *_site;
-    NSString *_accessToken;
-}
-
-@synthesize apiKey = _apiKey;
 @synthesize site = _site;
-@synthesize accessToken = _accessToken;
-
-- (id)initWithAccessToken:(NSString *)accessToken {
-    self = [self initWithSite:nil accessToken:accessToken];
-    return self;
-}
 
 - (id)initWithSite:(BBStackAPISite *)site accessToken:(NSString *)accessToken {
-    NSString *urlWithVersion = [NSString stringWithFormat:@"%@/%@/", kBBStackExchangeAPIURL, kBBStackExchangeAPIVersion];
-    self = [self initWithBaseURL:[NSURL URLWithString:urlWithVersion]];
+    self = [self initWithAccessToken:accessToken];
     if (self) {
         _site = [site retain];
-        _accessToken = [accessToken copy];
-        self.apiKey = kBBStackExchangeSiteAPIKey;
-    }
-
-    return self;
-}
-
-- (id)initWithBaseURL:(NSURL *)url {
-    self = [super initWithBaseURL:url];
-    if (self) {
-        [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-
-        [self setDefaultHeader:@"Accept" value:@"application/json"];
-        [self setDefaultHeader:@"Content-Type" value:@"application/json"];
-        [self setDefaultHeader:@"Accept-Encoding" value:@"gzip"];
     }
 
     return self;
 }
 
 - (void)dealloc {
-    [_apiKey release];
     [_site release];
-    [_accessToken release];
     [super dealloc];
 }
 
 - (NSDictionary *)buildParameters:(NSDictionary *)parameters {
-    NSMutableDictionary *updatedParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    [updatedParameters setValue:self.apiKey forKey:@"key"];
-    if (!(self.accessToken == nil || [self.accessToken length] == 0))
-        [updatedParameters setValue:self.accessToken forKey:@"access_token"];
+    NSMutableDictionary *updatedParameters = [[[super buildParameters:parameters] mutableCopy] autorelease];
     [updatedParameters setValue:self.site.apiSiteParameter forKey:@"site"];
     return updatedParameters;
-}
-
-+ (BBStackAPICallData *)callDataFromAttributes:(NSDictionary *)attributes {
-    NSUInteger quotaRemaining = (NSUInteger) [[attributes valueForKey:@"quota_remaining"] unsignedIntValue];
-    NSUInteger quotaMax = (NSUInteger) [[attributes valueForKey:@"quota_max"] unsignedIntValue];
-    bool hasMore = (bool) [[attributes valueForKey:@"has_more"] boolValue];
-
-    BBStackAPICallData *callData = [[[BBStackAPICallData alloc] initWithQuotaRemaining:quotaRemaining quotaMax:quotaMax hasMore:hasMore] autorelease];
-
-    callData.total = (NSUInteger) [[attributes valueForKey:@"total"] intValue];
-    callData.page = (NSUInteger) [[attributes valueForKey:@"page"] intValue];
-    callData.pageSize = (NSUInteger) [[attributes valueForKey:@"page_size"] intValue];
-    callData.type = [attributes valueForKey:@"type"];
-
-    return callData;
-}
-
-- (void)handleFailure:(AFHTTPRequestOperation *)request error:(NSError *)error failure:(BBStackAPIFailureHandler)failure {
-    NSLog(@"An error occurred making an API call. %@", error);
-    NSLog(@"Error response was %@", request.responseString);
-    if (failure != nil)
-        failure(request.response, error);
-}
-
-- (AFHTTPRequestOperation *)operationForGetPath:(NSString *)path
-     parameters:(NSDictionary *)parameters
-        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
-{
-	NSURLRequest *request = [self requestWithMethod:@"GET" path:path parameters:parameters];
-    return [self HTTPRequestOperationWithRequest:request success:success failure:failure];
 }
 
 
@@ -147,7 +72,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:userParams];
     return [self operationForGetPath:@"me/tags" parameters:queryString
           success:^(AFHTTPRequestOperation *request, id body) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:body];
               NSArray *results = [BBStackAPITag getObjectArrayFromAttributes:body inSite:self.site];
               if (success)
                 success(request, callData, results);
@@ -193,7 +118,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:userParams];
     return [self operationForGetPath:@"tags" parameters:queryString
           success:^(AFHTTPRequestOperation *request, id body) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:body];
               NSArray *results = [BBStackAPITag getObjectArrayFromAttributes:body inSite:self.site];
               if (success)
                 success(request, callData, results);
@@ -226,7 +151,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:nil];
     return [self operationForGetPath:[NSString stringWithFormat:@"tags/%@/wikis", tagNames] parameters:queryString
           success:^(AFHTTPRequestOperation *request, id successBody) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:successBody];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:successBody];
               NSArray *results = [BBStackAPITagWiki getObjectArrayFromAttributes:successBody inSite:self.site];
               success(request, callData, results);
           }
@@ -249,7 +174,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:userParams];
     return [self operationForGetPath:@"info" parameters:queryString
           success:^(AFHTTPRequestOperation *request, id body) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:body];
               NSArray *results = [BBStackAPISiteInfo getObjectArrayFromAttributes:body inSite:self.site];
               success(request, callData, results);
           }
@@ -298,7 +223,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:userParams];
     return [self operationForGetPath:@"questions" parameters:queryString
           success:^(AFHTTPRequestOperation *request, id successBody) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:successBody];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:successBody];
               NSArray *results = [BBStackAPIQuestion getObjectArrayFromAttributes:successBody inSite:self.site];
               success(request, callData, results);
           }
@@ -343,7 +268,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:userParams];
     return [self operationForGetPath:[NSString stringWithFormat:@"questions/%@/", questionIDsJoined] parameters:queryString
           success:^(AFHTTPRequestOperation *request, id successBody) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:successBody];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:successBody];
               NSArray *results = [BBStackAPIQuestion getObjectArrayFromAttributes:successBody inSite:self.site];
               success(request, callData, results);
           }
@@ -388,7 +313,7 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:userParams];
     return [self operationForGetPath:[NSString stringWithFormat:@"answers/%@/", answerIDsJoined] parameters:queryString
           success:^(AFHTTPRequestOperation *request, id successBody) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:successBody];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:successBody];
               NSArray *results = [BBStackAPIAnswer getObjectArrayFromAttributes:successBody inSite:self.site];
               success(request, callData, results);
           }
@@ -423,35 +348,13 @@ NSString * const kBBStackExchangeSiteAPIKey = BBSTACKEXCHANGE_SITE_API_KEY;
     NSDictionary *queryString = [self buildParameters:userParams];
     AFHTTPRequestOperation *operation = [self operationForGetPath:[NSString stringWithFormat:@"questions/%@/answers", questionIDs] parameters:queryString
           success:^(AFHTTPRequestOperation *request, id successBody) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:successBody];
+              BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:successBody];
               NSArray *results = [BBStackAPIAnswer getObjectArrayFromAttributes:successBody inSite:self.site];
               success(request, callData, results);
           }
           failure:^(AFHTTPRequestOperation *request, NSError *error) {
               [self handleFailure:request error:error failure:failure];
           }
-    ];
-    [self enqueueHTTPRequestOperation:operation];
-    return operation;
-}
-
-- (AFHTTPRequestOperation *)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
-         success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
-    NSMutableDictionary *userParams = [NSMutableDictionary dictionaryWithCapacity:3];
-    [userParams setValue:page forKey:@"page"];
-    [userParams setValue:pageSize forKey:@"pagesize"];
-    [userParams setValue:filter forKey:@"filter"];
-
-    NSDictionary *queryString = [self buildParameters:userParams];
-    AFHTTPRequestOperation *operation = [self operationForGetPath:@"sites" parameters:queryString
-          success:^(AFHTTPRequestOperation *request, id body) {
-              BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
-              NSArray *results = [BBStackAPISite getObjectArrayFromAttributes:body];
-              success(request, callData, results);
-          }
-          failure:^(AFHTTPRequestOperation *request, NSError *error){
-              [self handleFailure:request error:error failure:failure];
-        }
     ];
     [self enqueueHTTPRequestOperation:operation];
     return operation;

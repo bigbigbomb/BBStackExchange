@@ -4,16 +4,10 @@
 //
 #import <Foundation/Foundation.h>
 #import "AFHTTPClient.h"
-
-#ifndef BBSTACKEXCHANGE_SITE_API_KEY
-#define BBSTACKEXCHANGE_SITE_API_KEY  @"You should have defined BBSTACKEXCHANGE_SITE_API_KEY in your code. You can register for one at http://stackapps.com/apps/oauth/register"
-#endif
+#import "BBStackExchangeAPIClientBase.h"
 
 @class BBStackAPISite;
 @class BBStackAPICallData;
-
-typedef void(^BBStackAPISuccessHandler)(AFHTTPRequestOperation *operation, BBStackAPICallData *callData, NSArray * results);
-typedef void(^BBStackAPIFailureHandler)(NSHTTPURLResponse *response, NSError *error);
 
 typedef enum {
     BBStackAPIUserSortReputation = 0,
@@ -49,37 +43,18 @@ typedef enum {
     BBStackAPITagSortName = 2
 } BBStackAPITagSort;
 
-/**
-* The current version of the API implemented by this client.
-*/
-extern NSString * const kBBStackExchangeAPIVersion;
 
 /**
- * An API client for accessing the StackExchange API
+ * An API client for accessing the StackExchange API site methods.
+ * Each of these methods operates on a single site at a time, identified by the site property.
  * https://api.stackexchange.com/
  */
-@interface BBStackExchangeAPIClient : AFHTTPClient
-
-
-/**
-* The request key sent with each API call. This is not required but omitting it severly restricts the number of allowed requests.
-* You can register for an API key at http://stackapps.com/apps/oauth/register.
-*/
-@property (nonatomic, copy) NSString *apiKey;
-
-/**
-* An OAUTH access token that can be provided for API calls requiring authentication.
-* See https://api.stackexchange.com/docs/authentication for instructions on getting an access token.
-* This API client does not cover the OAUTH process of obtaining an access token.
-*/
-@property(nonatomic, copy) NSString *accessToken;
+@interface BBStackExchangeAPIClient : BBStackExchangeAPIClientBase
 
 /**
 * A BBStackAPISite instance that correlates with the configuration for this API client. (read-only)
 */
 @property(nonatomic, readonly, retain) BBStackAPISite *site;
-
-- (id)initWithAccessToken:(NSString *)accessToken;
 
 /**
 * Initializes and returns a BBStackExchangeAPIClient for the specified BBStackAPISite and access token.
@@ -243,13 +218,5 @@ extern NSString * const kBBStackExchangeAPIVersion;
                       fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate order:(BBStackAPISortOrder)order
                            min:(NSNumber *)min max:(NSNumber *)max sort:(BBStackAPIAnswerSort)sort
                         filter:(NSString *)filter success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
-
-/**
-* Creates a request for the /sites API call and enqueues it in the default operation pool.
-* Get all the sites in the Stack Exchange network.
-* @returns an NSOperation for the /sites API call.
-*/
-- (AFHTTPRequestOperation *)getSitesAtPage:(NSNumber *)page pageSize:(NSNumber *)pageSize filter:(NSString *)filter
-               success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 @end

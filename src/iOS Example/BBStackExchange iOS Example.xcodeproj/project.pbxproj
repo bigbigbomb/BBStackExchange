@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343512E152B580E00BEE7BB /* ExampleViewController.m */; };
 		D352EF841529FA4F00A3E94C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF831529FA4F00A3E94C /* UIKit.framework */; };
 		D352EF861529FA4F00A3E94C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF851529FA4F00A3E94C /* Foundation.framework */; };
 		D352EF881529FA4F00A3E94C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D352EF871529FA4F00A3E94C /* CoreGraphics.framework */; };
@@ -27,7 +28,6 @@
 		D352F000152A261E00A3E94C /* NSArray+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFEF152A261E00A3E94C /* NSArray+Formatting.m */; };
 		D352F001152A261E00A3E94C /* NSString+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFF1152A261E00A3E94C /* NSString+Formatting.m */; };
 		D352F002152A261E00A3E94C /* NSURL+StackExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFF3152A261E00A3E94C /* NSURL+StackExchange.m */; };
-		D352F0E6152A4EFD00A3E94C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D352F0E4152A4EFD00A3E94C /* InfoPlist.strings */; };
 		D352F0FC152A4FC700A3E94C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0E8152A4FC700A3E94C /* AFHTTPClient.m */; };
 		D352F0FD152A4FC700A3E94C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0EA152A4FC700A3E94C /* AFHTTPRequestOperation.m */; };
 		D352F0FE152A4FC700A3E94C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0EC152A4FC700A3E94C /* AFImageRequestOperation.m */; };
@@ -38,9 +38,14 @@
 		D352F103152A4FC700A3E94C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0F7152A4FC700A3E94C /* AFURLConnectionOperation.m */; };
 		D352F104152A4FC700A3E94C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0F9152A4FC700A3E94C /* AFXMLRequestOperation.m */; };
 		D352F105152A4FC700A3E94C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0FB152A4FC700A3E94C /* UIImageView+AFNetworking.m */; };
+		D352F105152A4FC700A3E94E /* BBStackExchangeNetworkAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E94D /* BBStackExchangeNetworkAPIClient.m */; };
+		D352F105152A4FC700A3E954 /* BBStackExchangeAPIClientBase+Protected.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E953 /* BBStackExchangeAPIClientBase+Protected.m */; };
+		D352F105152A4FC700A3E958 /* BBStackExchangeAPIClientBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F105152A4FC700A3E957 /* BBStackExchangeAPIClientBase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D343512D152B580E00BEE7BB /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		D343512E152B580E00BEE7BB /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		D352EF7F1529FA4F00A3E94C /* BBStackExchange iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BBStackExchange iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D352EF831529FA4F00A3E94C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D352EF851529FA4F00A3E94C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,7 +85,6 @@
 		D352EFF1152A261E00A3E94C /* NSString+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Formatting.m"; path = "../BBStackExchange/NSString+Formatting.m"; sourceTree = "<group>"; };
 		D352EFF2152A261E00A3E94C /* NSURL+StackExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+StackExchange.h"; path = "../BBStackExchange/NSURL+StackExchange.h"; sourceTree = "<group>"; };
 		D352EFF3152A261E00A3E94C /* NSURL+StackExchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+StackExchange.m"; path = "../BBStackExchange/NSURL+StackExchange.m"; sourceTree = "<group>"; };
-		D352F0E5152A4EFD00A3E94C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		D352F0E7152A4FC700A3E94C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = ../../lib/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		D352F0E8152A4FC700A3E94C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = ../../lib/AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		D352F0E9152A4FC700A3E94C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = ../../lib/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -102,6 +106,12 @@
 		D352F0F9152A4FC700A3E94C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = ../../lib/AFNetworking/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		D352F0FA152A4FC700A3E94C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "../../lib/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D352F0FB152A4FC700A3E94C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "../../lib/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E94D /* BBStackExchangeNetworkAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBStackExchangeNetworkAPIClient.m; path = ../BBStackExchange/BBStackExchangeNetworkAPIClient.m; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E94F /* BBStackExchangeNetworkAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBStackExchangeNetworkAPIClient.h; path = ../BBStackExchange/BBStackExchangeNetworkAPIClient.h; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E953 /* BBStackExchangeAPIClientBase+Protected.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BBStackExchangeAPIClientBase+Protected.m"; path = "../BBStackExchange/BBStackExchangeAPIClientBase+Protected.m"; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E955 /* BBStackExchangeAPIClientBase+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BBStackExchangeAPIClientBase+Protected.h"; path = "../BBStackExchange/BBStackExchangeAPIClientBase+Protected.h"; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E956 /* BBStackExchangeAPIClientBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStackExchangeAPIClientBase.h; sourceTree = "<group>"; };
+		D352F105152A4FC700A3E957 /* BBStackExchangeAPIClientBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStackExchangeAPIClientBase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,11 +128,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D343512A152B57F300BEE7BB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D343512C152B580400BEE7BB /* Controllers */,
+				D343512B152B57F900BEE7BB /* Supporting Files */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		D343512B152B57F900BEE7BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D352EFB1152A248100A3E94C /* BBStackExchange iOS Example-Info.plist */,
+				D352EFB2152A248100A3E94C /* BBStackExchange iOS Example-Prefix.pch */,
+				D352EFA41529FE5900A3E94C /* main.m */,
+				D352EF9F1529FE4600A3E94C /* AppDelegate.h */,
+				D352EFA01529FE4600A3E94C /* AppDelegate.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D343512C152B580400BEE7BB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D343512D152B580E00BEE7BB /* ExampleViewController.h */,
+				D343512E152B580E00BEE7BB /* ExampleViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		D352EF741529FA4F00A3E94C = {
 			isa = PBXGroup;
 			children = (
+				D343512A152B57F300BEE7BB /* Classes */,
 				D352EFAA152A1E2800A3E94C /* Lib */,
-				D352EF891529FA4F00A3E94C /* Classes */,
 				D352EF821529FA4F00A3E94C /* Frameworks */,
 				D352EF801529FA4F00A3E94C /* Products */,
 			);
@@ -144,28 +184,6 @@
 				D352EF871529FA4F00A3E94C /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D352EF891529FA4F00A3E94C /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D352EF8A1529FA4F00A3E94C /* Supporting Files */,
-			);
-			name = Classes;
-			path = iOSExample;
-			sourceTree = "<group>";
-		};
-		D352EF8A1529FA4F00A3E94C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D352F0E4152A4EFD00A3E94C /* InfoPlist.strings */,
-				D352EFB1152A248100A3E94C /* BBStackExchange iOS Example-Info.plist */,
-				D352EFB2152A248100A3E94C /* BBStackExchange iOS Example-Prefix.pch */,
-				D352EFA41529FE5900A3E94C /* main.m */,
-				D352EF9F1529FE4600A3E94C /* AppDelegate.h */,
-				D352EFA01529FE4600A3E94C /* AppDelegate.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D352EFAA152A1E2800A3E94C /* Lib */ = {
@@ -208,6 +226,12 @@
 		D352EFD4152A25C600A3E94C /* BBStackExchange */ = {
 			isa = PBXGroup;
 			children = (
+				D352F105152A4FC700A3E957 /* BBStackExchangeAPIClientBase.m */,
+				D352F105152A4FC700A3E956 /* BBStackExchangeAPIClientBase.h */,
+				D352F105152A4FC700A3E955 /* BBStackExchangeAPIClientBase+Protected.h */,
+				D352F105152A4FC700A3E953 /* BBStackExchangeAPIClientBase+Protected.m */,
+				D352F105152A4FC700A3E94F /* BBStackExchangeNetworkAPIClient.h */,
+				D352F105152A4FC700A3E94D /* BBStackExchangeNetworkAPIClient.m */,
 				D352EFD9152A261E00A3E94C /* Model */,
 				D352EFD5152A261E00A3E94C /* BBStackAPICallData.h */,
 				D352EFD6152A261E00A3E94C /* BBStackAPICallData.m */,
@@ -302,7 +326,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D352F0E6152A4EFD00A3E94C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,21 +363,14 @@
 				D352F103152A4FC700A3E94C /* AFURLConnectionOperation.m in Sources */,
 				D352F104152A4FC700A3E94C /* AFXMLRequestOperation.m in Sources */,
 				D352F105152A4FC700A3E94C /* UIImageView+AFNetworking.m in Sources */,
+				D352F105152A4FC700A3E94E /* BBStackExchangeNetworkAPIClient.m in Sources */,
+				D352F105152A4FC700A3E954 /* BBStackExchangeAPIClientBase+Protected.m in Sources */,
+				D352F105152A4FC700A3E958 /* BBStackExchangeAPIClientBase.m in Sources */,
+				D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		D352F0E4152A4EFD00A3E94C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D352F0E5152A4EFD00A3E94C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D352EF951529FA4F00A3E94C /* Debug */ = {
