@@ -49,6 +49,9 @@ typedef enum {
     BBStackAPITagSortName = 2
 } BBStackAPITagSort;
 
+/**
+* The current version of the API implemented by this client.
+*/
 extern NSString * const kBBStackExchangeAPIVersion;
 
 /**
@@ -87,6 +90,14 @@ extern NSString * const kBBStackExchangeAPIVersion;
 /**
 * Get the tags that the user specified by the current accessToken has been active in.
 * This call will fail if the API client does not have a valid accessToken.
+* @param fromDate Include questions from this date
+* @param max
+* @param min
+* @param pageSize
+* @param sort
+* @param toDate
+* @param success
+* @param failure
 * @returns an NSOperation for the /usrs/me/tags API call.
 */
 - (AFHTTPRequestOperation *)operationForGetMeTagsFromDate:(NSDate *)fromDate max:(NSNumber *)max min:(NSNumber *)min
