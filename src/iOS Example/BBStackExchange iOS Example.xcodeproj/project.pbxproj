@@ -29,7 +29,6 @@
 		D352EFFF152A261E00A3E94C /* BBStackExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFED152A261E00A3E94C /* BBStackExchangeModel.m */; };
 		D352F000152A261E00A3E94C /* NSArray+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFEF152A261E00A3E94C /* NSArray+Formatting.m */; };
 		D352F001152A261E00A3E94C /* NSString+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFF1152A261E00A3E94C /* NSString+Formatting.m */; };
-		D352F002152A261E00A3E94C /* NSURL+StackExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = D352EFF3152A261E00A3E94C /* NSURL+StackExchange.m */; };
 		D352F0FC152A4FC700A3E94C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0E8152A4FC700A3E94C /* AFHTTPClient.m */; };
 		D352F0FD152A4FC700A3E94C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0EA152A4FC700A3E94C /* AFHTTPRequestOperation.m */; };
 		D352F0FE152A4FC700A3E94C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D352F0EC152A4FC700A3E94C /* AFImageRequestOperation.m */; };
@@ -89,8 +88,6 @@
 		D352EFEF152A261E00A3E94C /* NSArray+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Formatting.m"; sourceTree = "<group>"; };
 		D352EFF0152A261E00A3E94C /* NSString+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Formatting.h"; path = "../BBStackExchange/NSString+Formatting.h"; sourceTree = "<group>"; };
 		D352EFF1152A261E00A3E94C /* NSString+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Formatting.m"; path = "../BBStackExchange/NSString+Formatting.m"; sourceTree = "<group>"; };
-		D352EFF2152A261E00A3E94C /* NSURL+StackExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+StackExchange.h"; path = "../BBStackExchange/NSURL+StackExchange.h"; sourceTree = "<group>"; };
-		D352EFF3152A261E00A3E94C /* NSURL+StackExchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+StackExchange.m"; path = "../BBStackExchange/NSURL+StackExchange.m"; sourceTree = "<group>"; };
 		D352F0E7152A4FC700A3E94C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = ../../lib/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		D352F0E8152A4FC700A3E94C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = ../../lib/AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		D352F0E9152A4FC700A3E94C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = ../../lib/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -255,8 +252,6 @@
 				D352EFD8152A261E00A3E94C /* BBStackExchangeAPIClient.m */,
 				D352EFF0152A261E00A3E94C /* NSString+Formatting.h */,
 				D352EFF1152A261E00A3E94C /* NSString+Formatting.m */,
-				D352EFF2152A261E00A3E94C /* NSURL+StackExchange.h */,
-				D352EFF3152A261E00A3E94C /* NSURL+StackExchange.m */,
 			);
 			name = BBStackExchange;
 			sourceTree = "<group>";
@@ -370,7 +365,6 @@
 				D352EFFF152A261E00A3E94C /* BBStackExchangeModel.m in Sources */,
 				D352F000152A261E00A3E94C /* NSArray+Formatting.m in Sources */,
 				D352F001152A261E00A3E94C /* NSString+Formatting.m in Sources */,
-				D352F002152A261E00A3E94C /* NSURL+StackExchange.m in Sources */,
 				D352F0FC152A4FC700A3E94C /* AFHTTPClient.m in Sources */,
 				D352F0FD152A4FC700A3E94C /* AFHTTPRequestOperation.m in Sources */,
 				D352F0FE152A4FC700A3E94C /* AFImageRequestOperation.m in Sources */,
