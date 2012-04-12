@@ -142,13 +142,15 @@
     return operation;
 }
 
-- (AFHTTPRequestOperation *)operationForGetWikisForTags:(NSArray *)tags
-                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
+- (AFHTTPRequestOperation *)operationForGetWikisForTags:(NSArray *)tags filter:(NSString *)filter
+                                                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
     NSString *tagNames = [tags asStringWithObjectsFromBlock:^(id item, NSUInteger index) {
         BBStackAPITag *tag = item;
         return AFURLEncodedStringFromStringWithEncoding(tag.name, NSUTF8StringEncoding);
     } joinedByString:@";"];
-    NSDictionary *queryString = [self buildParameters:nil];
+    NSMutableDictionary *userParams = [NSMutableDictionary dictionaryWithCapacity:1];
+    [userParams setValue:filter forKey:@"filter"];
+    NSDictionary *queryString = [self buildParameters:userParams];
     return [self operationForGetPath:[NSString stringWithFormat:@"tags/%@/wikis", tagNames] parameters:queryString
           success:^(AFHTTPRequestOperation *request, id successBody) {
               BBStackAPICallData *callData = [BBStackExchangeAPIClientBase callDataFromAttributes:successBody];
@@ -161,9 +163,9 @@
     ];
 }
 
-- (AFHTTPRequestOperation *)getWikisForTags:(NSArray *)tags
-                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
-    AFHTTPRequestOperation *operation = [self operationForGetWikisForTags:tags success:success failure:failure];
+- (AFHTTPRequestOperation *)getWikisForTags:(NSArray *)tags filter:(NSString *)filter
+                                    success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure {
+    AFHTTPRequestOperation *operation = [self operationForGetWikisForTags:tags filter:filter success:success failure:failure];
     [self enqueueHTTPRequestOperation:operation];
     return operation;
 }
