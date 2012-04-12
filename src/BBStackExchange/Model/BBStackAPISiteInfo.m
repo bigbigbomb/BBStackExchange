@@ -3,9 +3,17 @@
 //  Copyright 2011 BigBig Bomb, LLC. All rights reserved.
 //
 #import "BBStackAPISiteInfo.h"
+#import "BBStackAPISite.h"
 
 
-@implementation BBStackAPISiteInfo
+@implementation BBStackAPISiteInfo{
+    BBStackAPISite *_siteDetail;
+}
+
+- (void)dealloc {
+    [_siteDetail release];
+    [super dealloc];
+}
 
 - (NSInteger)totalQuestions {
     return [[self.attributes valueForKey:@"total_questions"] integerValue];
@@ -51,5 +59,11 @@
     return  [[self.attributes valueForKey:@"badges_per_minute"] floatValue];
 }
 
+- (BBStackAPISite *)siteDetail {
+    if (!_siteDetail)
+        NonatomicRetainedSetToFrom(_siteDetail, [[[BBStackAPISite alloc] initWithAttributes:[self.attributes valueForKey:@"site"]] autorelease]);
+
+    return _siteDetail;
+}
 
 @end
