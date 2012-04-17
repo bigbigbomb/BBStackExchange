@@ -41,7 +41,7 @@
     [userParams setValue:filter forKey:@"filter"];
 
     NSDictionary *queryString = [self buildParameters:userParams];
-    return [self operationForGetPath:@"me/associated" parameters:queryString
+    AFHTTPRequestOperation *operation = [self operationForGetPath:@"me/associated" parameters:queryString
           success:^(AFHTTPRequestOperation *request, id body) {
               BBStackAPICallData *callData = [BBStackExchangeAPIClient callDataFromAttributes:body];
               NSArray *results = [BBStackAPINetworkUser getObjectArrayFromAttributes:body];
@@ -51,6 +51,8 @@
               [self handleFailure:request error:error failure:failure];
         }
     ];
+    [self enqueueHTTPRequestOperation:operation];
+    return operation;
 }
 
 @end

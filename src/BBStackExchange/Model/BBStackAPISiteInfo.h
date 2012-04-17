@@ -22,5 +22,6 @@
 @property (nonatomic, readonly, assign) CGFloat questionsPerMinute;
 @property (nonatomic, readonly, assign) CGFloat answersPerMinute;
 @property (nonatomic, readonly, assign) CGFloat badgesPerMinute;
+@property (nonatomic, readonly) BBStackAPISite *siteDetail;
 
 @end

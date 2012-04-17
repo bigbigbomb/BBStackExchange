@@ -8,6 +8,7 @@
 
 @class BBStackAPISite;
 @class BBStackAPICallData;
+@class AFHTTPRequestOperation;
 
 typedef enum {
     BBStackAPIUserSortReputation = 0,
@@ -117,15 +118,15 @@ typedef enum {
 * Get the wiki entries for a set of tags.
 * @returns an NSOperation for the /tags/{tags}/wikis API call.
 */
-- (AFHTTPRequestOperation *)operationForGetWikisForTags:(NSArray *)tags
+- (AFHTTPRequestOperation *)operationForGetWikisForTags:(NSArray *)tags filter:(NSString *)filter
                                                 success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 /**
 * Creates a request for the /tags/{tags}/wikis API call and enqueues it in the default operation pool.
 * Get the wiki entries for a set of tags.
 */
-- (AFHTTPRequestOperation *)getWikisForTags:(NSArray *)tags
-                success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
+- (AFHTTPRequestOperation *)getWikisForTags:(NSArray *)tags filter:(NSString *)filter
+                                    success:(BBStackAPISuccessHandler)success failure:(BBStackAPIFailureHandler)failure;
 
 /**
 * Get information about the entire site.
