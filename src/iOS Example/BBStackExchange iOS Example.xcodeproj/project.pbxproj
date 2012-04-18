@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3328DF0153F1BDA006D640F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3328DEF153F1BDA006D640F /* Icon@2x.png */; };
+		D3328DF2153F1BDC006D640F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3328DF1153F1BDC006D640F /* Icon.png */; };
 		D343512F152B580E00BEE7BB /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343512E152B580E00BEE7BB /* ExampleViewController.m */; };
 		D3435138152B764500BEE7BB /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3435137152B764500BEE7BB /* QuestionTableViewCell.m */; };
 		D343513B152B795F00BEE7BB /* BBStackAPINetworkUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D343513A152B795F00BEE7BB /* BBStackAPINetworkUser.m */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3328DEF153F1BDA006D640F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		D3328DF1153F1BDC006D640F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D343512D152B580E00BEE7BB /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		D343512E152B580E00BEE7BB /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		D3435136152B764500BEE7BB /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		D352EF741529FA4F00A3E94C = {
 			isa = PBXGroup;
 			children = (
+				D3328DF1153F1BDC006D640F /* Icon.png */,
+				D3328DEF153F1BDA006D640F /* Icon@2x.png */,
 				D343512A152B57F300BEE7BB /* Classes */,
 				D352EFAA152A1E2800A3E94C /* Lib */,
 				D352EF821529FA4F00A3E94C /* Frameworks */,
@@ -339,6 +345,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3328DF0153F1BDA006D640F /* Icon@2x.png in Resources */,
+				D3328DF2153F1BDC006D640F /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
