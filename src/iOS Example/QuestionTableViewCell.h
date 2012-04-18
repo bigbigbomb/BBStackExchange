@@ -4,6 +4,11 @@
 //
 #import <Foundation/Foundation.h>
 
+@class BBStackAPIQuestion;
+
 
 @interface QuestionTableViewCell : UITableViewCell
+
+@property (nonatomic, retain) BBStackAPIQuestion *question;
+
 @end
