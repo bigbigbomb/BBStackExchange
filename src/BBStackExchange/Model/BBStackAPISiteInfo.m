@@ -61,7 +61,7 @@
 
 - (BBStackAPISite *)siteDetail {
     if (!_siteDetail)
-        NonatomicRetainedSetToFrom(_siteDetail, [[[BBStackAPISite alloc] initWithAttributes:[self.attributes valueForKey:@"site"]] autorelease]);
+        _siteDetail = [[BBStackAPISite alloc] initWithAttributes:[self.attributes valueForKey:@"site"]];
 
     return _siteDetail;
 }
